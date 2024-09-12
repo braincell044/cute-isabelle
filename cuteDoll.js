@@ -24,6 +24,7 @@ var sayHello = document.getElementsByTagName("h2")
 for(b = 0; b< sayHello.length; b++){
     sayHello[b].innerHTML = "i miss you so much"
 
+
 }
 
 },10000)
@@ -53,21 +54,21 @@ var bottomRightX = 350;
 var sunRadius = 100;
 
 function setup() {
-    createCanvas(1000, 1000); // Create a 400x400 canvas
+    createCanvas(800, 800); // Create a 400x400 canvas
     noStroke();
 }
 
 function draw() {
-    background(184, 236, 255); // Sky color
+    background(249, 204, 202); // Sky color
     leftX -= 1; // Move the left cloud to the left
     rightX += 1; // Move the right cloud to the right
     bottomLeftX += 0.5; // Move the bottom left cloud to the right
     bottomRightX -= 0.5; // Move the bottom right cloud to the left
-    sunRadius += 2; // Increase the size of the sun
+    sunRadius += 0; // Increase the size of the sun
 
-    /* Draw the sun
+    // Draw the sun
     fill(255, 170, 0);
-    ellipse(200, 100, sunRadius, sunRadius);*/
+    ellipse(200, 100, sunRadius, sunRadius);
 
     // Reset cloud positions when they move off screen
     if (leftX < -100) {  // If the left cloud goes too far left
