@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sun and Clouds Animation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <script>
+        var leftX = 150;
+        var rightX = 300;
+        var bottomLeftX = 100;
+        var bottomRightX = 350;
+        var sunRadius = 100;
+
+        function setup() {
+            createCanvas(400, 400); // Create a 400x400 canvas
+            noStroke();
+        }
+
+        function draw() {
+            background(184, 236, 255); // Sky color
+            leftX -= 1; // Move the left cloud to the left
+            rightX += 1; // Move the right cloud to the right
+            bottomLeftX += 0.5; // Move the bottom left cloud to the right
+            bottomRightX -= 0.5; // Move the bottom right cloud to the left
+            sunRadius += 2; // Increase the size of the sun
+
+            // Draw the sun
+            fill(255, 170, 0);
+            ellipse(200, 100, sunRadius, sunRadius);
+
+            // Reset cloud positions when they move off screen
+            if (leftX < -100) {  // If the left cloud goes too far left
+                leftX = width + 100; // Reset it to the right edge
+            }
+            if (rightX > width + 100) { // If the right cloud goes too far right
+                rightX = -100; // Reset it to the left edge
+            }
+            if (bottomLeftX > width + 100) { // If the bottom left cloud goes too far right
+                bottomLeftX = -100; // Reset it to the left edge
+            }
+            if (bottomRightX < -100) { // If the bottom right cloud goes too far left
+                bottomRightX = width + 100; // Reset it to the right edge
+            }
+
+            // Draw clouds
+            fill(255, 255, 255);
+            // Top left cloud
+            ellipse(leftX, 150, 126, 97);
+            ellipse(leftX + 62, 150, 70, 60);
+            ellipse(leftX - 62, 150, 70, 60);
+
+            // Top right cloud
+            ellipse(rightX, 100, 126, 97);
+            ellipse(rightX + 62, 100, 70, 60);
+            ellipse(rightX - 62, 100, 70, 60);
+
+            // Bottom left cloud
+            ellipse(bottomLeftX, 300, 126, 97);
+            ellipse(bottomLeftX + 62, 300, 70, 60);
+            ellipse(bottomLeftX - 62, 300, 70, 60);
+
+            // Bottom right cloud
+            ellipse(bottomRightX, 250, 126, 97);
+            ellipse(bottomRightX + 62, 250, 70, 60);
+            ellipse(bottomRightX - 62, 250, 70, 60);
+        }
+    </script>
+</body>
+</html>
